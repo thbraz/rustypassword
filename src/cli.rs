@@ -1,7 +1,7 @@
 use clap::Parser;
 
 #[derive(Parser)]
-#[command(name = "Rusty Password", version = "0.0.1", about = "Password Generator written in Rust")]
+#[command(name = "Rusty Password", about = "Password Generator written in Rust")]
 pub struct Args {
     #[arg(short, long)]
     pub length: u8,
@@ -35,5 +35,4 @@ mod tests {
     fn rejects_out_of_range() {
         assert!(Args::try_parse_from(["rustypassword", "-l", "300"]).is_err());
     }
-
 }
