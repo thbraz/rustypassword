@@ -16,6 +16,7 @@ mod tests {
         assert_eq!(password.len(), length as usize);
     }
 
+    #[test]
     fn length_zero() {
         let length: u8 = 0;
         let password = gen_password(length);
