@@ -4,7 +4,8 @@ use rustypassword::password;
 
 fn main() {
     let args = Args::parse();
-    let password = password::generate(args.length);
+    let mut generator = rand::rng();
+    let password = password::generate(&mut generator, args.length);
 
     println!("Password: {}", password);
 }

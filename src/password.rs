@@ -1,8 +1,8 @@
 use rand::distr::{Alphanumeric, SampleString};
+use rand::rngs::ThreadRng;
 
-pub fn generate(length: u8) -> String {
-    let mut rng = rand::rng();
-    Alphanumeric.sample_string(&mut rng, length as usize)
+pub fn generate(generator: &mut ThreadRng ,length: u8) -> String {
+    Alphanumeric.sample_string(generator, length as usize)
 }
 
 #[cfg(test)]
