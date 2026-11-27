@@ -1,10 +1,11 @@
 use clap::Parser;
 use rustypassword::cli::Args;
-use rustypassword::generator;
+use rustypassword::password;
 
 fn main() {
     let args = Args::parse();
-    let password = generator::gen_password(args.length);
+    let mut rng = rand::rng();
+    let password = password::generate(&mut rng, args.length);
 
     println!("Password: {}", password);
 }

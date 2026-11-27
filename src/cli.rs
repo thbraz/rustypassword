@@ -4,7 +4,7 @@ use clap::Parser;
 #[command(name = "Rusty Password", about = "Password Generator written in Rust")]
 pub struct Args {
     #[arg(short, long)]
-    pub length: u8,
+    pub length: usize,
 }
 
 #[cfg(test)]
@@ -29,10 +29,5 @@ mod tests {
     #[test]
     fn length_required() {
         assert!(Args::try_parse_from(["rustypassword"]).is_err());
-    }
-
-    #[test]
-    fn rejects_out_of_range() {
-        assert!(Args::try_parse_from(["rustypassword", "-l", "300"]).is_err());
     }
 }
