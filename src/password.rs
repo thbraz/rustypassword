@@ -12,14 +12,16 @@ mod tests {
     #[test]
     fn verify_length() {
         let length: u8 = 8;
-        let password = generate(length);
+        let mut rng = rand::rng();
+        let password = generate(&mut rng, length);
         assert_eq!(password.len(), length as usize);
     }
 
     #[test]
     fn length_zero() {
         let length: u8 = 0;
-        let password = generate(length);
+        let mut rng = rand::rng();
+        let password = generate(&mut rng, length);
         assert_eq!(password.len(), length as usize);
     }
 }
